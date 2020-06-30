@@ -1,24 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
+import SearchBar from './components/search-bar';
+import SmallButton from './components/small-button';
+import FlightContainer from './components/flight-container';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <SearchBar 
+          id='search-bar-one' 
+          title="Loaction2"
+          />
+        <SearchBar 
+          id='search-bar-two' 
+          title="Destination"/>
+        <SmallButton 
+          id='search-button-one' 
+          title='Search Button'/>
+        <FlightContainer
+          airline="SWA"
+          currentLocation="HOU"
+          destination="LAX"
+          type="One Way"/>
+      </div>
     </div>
   );
 }
