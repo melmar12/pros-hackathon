@@ -4,8 +4,9 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const connectDB = require('./config/db')
-
 let Airport = require('./airport.model');
+
+var db = require('./data/db.json');
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -21,9 +22,41 @@ connection.once('open', function() {
 })
 
 
+app.get('/db', function(req, res) {
+    res.send(getData("Austin"));
+});
+
+
+// helper functions
+function getData(city) {
+    let data = db.Sample;
+    for(let i in data){
+       if(data[i].city === city){
+            return data[i];
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // can put this in separate a routes file
 const airportRoutes = express.Router();
+
 
 // GET all airports
 airportRoutes.route('/').get(function(req, res) {
@@ -74,83 +107,6 @@ airportRoutes.route('/add').post(function(req, res) {
             res.status(400).send('adding new airport failed');
         });
 });
-
-// ALGORITHM
-// search query algorithm
-// postRoutes.route('/search/:query').get(function(req, res) {
-//     // relys on frontend to pass a correctly formatted query...
-//     let query = JSON.parse(req.params.query)
-//     let tags = query.hashtags
-//     let username = query.username
-//     let location = query.location
-//
-//     // determines what type of search query to run...
-//     if(tags){ // need to check for tags bc the $all: operator will be used in search
-//         if(username && location) {
-//             // all three: tags, username and location
-//             Post.find({"hashtags": {$all: tags }, "username": username, "location": location}, function(err, post) {
-//                 if(!post) {
-//                     res.status(404).send("not found");
-//                 }
-//                 else {
-//                     res.json(post);
-//                 }
-//             }).catch(err => {
-//                 res.status(400).send("not possible");
-//             });
-//         } else if (username && !location){
-//             // tags and username
-//             Post.find({"hashtags": {$all: tags }, "username": username}, function(err, post) {
-//                 if(!post) {
-//                     res.status(404).send("not found");
-//                 }
-//                 else {
-//                     res.json(post);
-//                 }
-//             }).catch(err => {
-//                 res.status(400).send("not possible");
-//             });
-//         } else if (!username && location) {
-//             // tags and location
-//             Post.find({"hashtags": {$all: tags }, "location": location}, function(err, post) {
-//                 if(!post) {
-//                     res.status(404).send("not found");
-//                 }
-//                 else {
-//                     res.json(post);
-//                 }
-//             }).catch(err => {
-//                 res.status(400).send("not possible");
-//             });
-//         } else {
-//             // just tags
-//             Post.find({"hashtags": {$all: tags }}, function(err, post) {
-//                 if(!post) {
-//                     res.status(404).send("not found");
-//                 }
-//                 else {
-//                     res.json(post);
-//                 }
-//             }).catch(err => {
-//                 res.status(400).send("not possible");
-//             });
-//         }
-//     } else {
-//         // either location and username, just location or just username
-//         // not necessary to alter query
-//         Post.find(query, function(err, post) {
-//             if(!post)
-//                 res.status(404).send("not found");
-//             else {
-//                 res.json(post);
-//             }
-//         }).catch(err => {
-//             res.status(400).send("not possible");
-//         });
-//         // wish i could make this smaller lol
-//     }
-// });
-// end file
 
 
 
