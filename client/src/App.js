@@ -14,7 +14,8 @@ function App() {
           />
         <SearchBar 
           id='search-bar-two' 
-          title="Destination"/>
+          title="Destination"
+          image="./src/img/pin.png"/>
         <SmallButton 
           id='search-button-one' 
           title='Search Button'/>
@@ -23,6 +24,7 @@ function App() {
           currentLocation="HOU"
           destination="LAX"
           type="One Way"/>
+          Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
       </div>
     </div>
   );
