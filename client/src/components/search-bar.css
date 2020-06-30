@@ -2,7 +2,12 @@
     width: 36rem;
 }
 
-.icon{
-    background-image: "./img/pin.png";
-    image-rendering: auto;
+.img-container{
+    background-color: white;
+}
+
+.img{
+    width: 23px;
+    height: 23px;
+    background-color: white;
 }

@@ -15,8 +15,10 @@ class SearchBar extends React.Component{
             <div>
             <InputGroup className="body">
                     <InputGroup.Prepend >
-                        <InputGroup.Text className="icon"
-                            id="inputGroup-sizing-default"/>
+                        <InputGroup.Text className="img-container"
+                            id="inputGroup-sizing-default">
+                                <img className="img" src={this.image}/>
+                            </InputGroup.Text>
                     </InputGroup.Prepend>
                     <FormControl aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder={this.title}/>
             </InputGroup>
