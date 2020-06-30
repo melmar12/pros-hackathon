@@ -1,9 +1,12 @@
 ## dev notes:
+### in ./client/
+* npm install
 
 ### in root folder:
 * npm install
-* npm run server
-* npm run client
+
+### run app locally
+* npm run-script dev
 
 ### in postman:
 * GET localhost:4000/airports/

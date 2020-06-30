@@ -1,5 +1,5 @@
 {
-  "name": "PROSHackathon",
+  "name": "pros-hackathon",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
