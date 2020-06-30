@@ -3,14 +3,13 @@ import SearchBar from './components/search-bar';
 import SmallButton from './components/small-button';
 import FlightContainer from './components/flight-container';
 import './App.css';
-import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import InputGroup from "react-bootstrap/InputGroup";
-import FormControl from "react-bootstrap/FormControl";
+import Form from "./form";
 
 function App() {
   return (
     <div className="App">
+        <Form id='search-form'/>
       <div>
         <SearchBar 
           id='search-bar-one' 

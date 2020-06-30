@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const connectDB = require('./config/db')
 let Airport = require('./airport.model');
 
-var db = require('./data/db.json');
+let db = require('./data/db.json');
 
 app.use(cors());
 app.use(bodyParser.json());
