@@ -1,17 +1,21 @@
 import React, {Component} from 'react'
 import axios from 'axios'
-import SearchBar from "./components/search-bar"
-import SmallButton from "./components/small-button"
-import Pin from "./img/pin.png"
-import Circle from "./img/circle.svg"
-import './css/Form.css'
 import {Col} from "react-bootstrap"
-import DatePicker from "./components/datepicker"
-import SearchImg from './img/search.png'
-import FlightContainer from "./components/flight-container";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
+
+import SearchBar from "./components/search-bar"
+import SmallButton from "./components/small-button"
+import FlightContainer from "./components/flight-container";
+import DatePicker from "./components/datepicker"
 import Results from "./Results";
+
+import SearchImg from './img/search.png'
+import Pin from "./img/pin.png"
+import Circle from "./img/circle.svg"
+
+import './css/Form.css'
+import './css/results.css'
 
 export default class Form extends Component {
     constructor(props) {
@@ -106,24 +110,22 @@ export default class Form extends Component {
 
                 {/*    <Results data={this.state.data}/>*/}
                 {/*</Row>*/}
-                <Row className="results justify-content-md-center">
+                <Row className="justify-content-md-center">
                     <div>
                         {(Object.keys(this.state.data).length > 0) ? Object.keys(this.state.data).map(key => (
-                                <div>
-                                    <Row>
-                                        <FlightContainer
-                                            key={key}
-                                            airline={this.state.data[key].airline}
-                                            currentLocation={this.state.data[key].start}
-                                            destination={this.state.data[key].end}
-                                            type="One Way"
-                                            time={this.state.data[key].time.replace("?", "-")}
-                                            duration={this.state.data[key].duration}
-                                            price={"$"+this.state.data[key].price}
-                                            score={this.state.data[key].score+"%"}/>
-                                    </Row>
-                                </div>
-                        )): <div>results ...</div>}
+                            <Row className="results">
+                                <FlightContainer
+                                    key={key}
+                                    airline={this.state.data[key].airline}
+                                    currentLocation={this.state.data[key].start}
+                                    destination={this.state.data[key].end}
+                                    type="One Way"
+                                    time={this.state.data[key].time.replace("?", "-")}
+                                    duration={this.state.data[key].duration}
+                                    price={"$"+this.state.data[key].price}
+                                    score={this.state.data[key].score+"%"}/>
+                            </Row>
+                        )): <Row>results ...</Row>}
                     </div>
                 </Row>
             </Container>

@@ -5,7 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Form from "./form.js";
 import PROSLogo from './img/pros-logo.svg';
 
-
 function App() {
   return (
     <div className="App">
