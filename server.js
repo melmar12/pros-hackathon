@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const connectDB = require('./config/db')
 let Airport = require('./airport.model');
 
-var db = require('./data/db.json');
+let db = require('./data/db.json');
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -21,24 +21,28 @@ connection.once('open', function() {
     console.log("MongoDB database connection established successfully");
 })
 
-
 app.get('/db', function(req, res) {
-    res.send(getData("Austin"));
+    res.send(db);
+});
+
+app.get('/db/:query', function(req, res) {
+    let query = JSON.parse(req.params.query)
+    let city = query.city
+    res.send(getData(city));
 });
 
 
 // helper functions
 function getData(city) {
     let data = db.Sample;
+    let result = [];
     for(let i in data){
        if(data[i].city === city){
-            return data[i];
+            result.push(data[i]);
         }
     }
+    return result;
 }
-
-
-
 
 
 
@@ -76,25 +80,6 @@ airportRoutes.route('/:id').get(function(req, res) {
         res.json(airport);
     });
 });
-
-// POST update
-// postRoutes.route('/update/:id').post(function(req, res) {
-//     Post.findById(req.params.id, function(err, post) {
-//         if (!post)
-//             res.status(404).send("data is not found");
-//         else
-//             post.username = req.body.username;
-//         post.location = req.body.location;
-//         post.hashtags = req.body.hashtags;
-//
-//         post.save().then(post => {
-//             res.json('Post updated!');
-//         })
-//             .catch(err => {
-//                 res.status(400).send("Update not possible");
-//             });
-//     });
-// });
 
 // POST add airport
 airportRoutes.route('/add').post(function(req, res) {
