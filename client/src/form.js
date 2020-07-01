@@ -2,10 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import SearchBar from "./components/search-bar";
 import SmallButton from "./components/small-button";
-import SearchImg from "./img/search.png";
 import Pin from "./img/pin.png";
-import Arrow from "./img/arrow.svg"
-import Plane from "./img/plane.svg"
 import Circle from "./img/circle.svg"
 import './css/Form.css'
 import {Col} from "react-bootstrap";
