@@ -14,10 +14,13 @@ export default class Form extends Component {
             <div>
             <FlightContainer
                 airline="SWA"
-                currentLocation="HOU"
-                destination="LAX"
+                currentLocation="IAH"
+                destination="ORD"
                 type="One Way"
-                score="56%"/>
+                time="10:05 AM - 11:13 AM"
+                duration="1hr 8m"
+                price="$97"
+                score="70"/>
             Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
             </div>
         )
