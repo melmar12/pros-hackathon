@@ -21,10 +21,10 @@ app.get('/db/:query', function(req, res) {
 
 // helper functions
 function getData(city) {
-    let data = db.Sample;
+    let data = db.Everything;
     let result = [];
     for(let i in data){
-       if(data[i].city === city){
+       if(data[i].userInput === city){
             result.push(data[i]);
         }
     }

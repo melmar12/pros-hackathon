@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import Card from 'react-bootstrap/Card';
-import Col from 'react-bootstrap/Col';
 import Container from "react-bootstrap/Container";
-import SmallButton from "./small-button";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './flight-container.css';
-import optionImg from './../img/more.png';
 import './search-bar.css';
 
 class FlightContainer extends React.Component{
@@ -23,7 +20,7 @@ class FlightContainer extends React.Component{
 
     render(){
         return(
-        <Card className="FlightContainer">
+        <Card className="FlightContainer" key={this.key}>
             <Container>
                 <div class="row">
                     <div class="col-4">
