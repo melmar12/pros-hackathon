@@ -1,26 +1,25 @@
-import React, {Component} from 'react';
-import axios from 'axios';
-import SearchBar from "./components/search-bar";
-import SmallButton from "./components/small-button";
-import Pin from "./img/pin.png";
+import React, {Component} from 'react'
+import axios from 'axios'
+import SearchBar from "./components/search-bar"
+import SmallButton from "./components/small-button"
+import Pin from "./img/pin.png"
 import Circle from "./img/circle.svg"
 import './css/Form.css'
-import {Col} from "react-bootstrap";
-import DatePicker from "./components/datepicker";
-import SearchImg from './img/search.png';
+import {Col} from "react-bootstrap"
+import DatePicker from "./components/datepicker"
+import SearchImg from './img/search.png'
 
 export default class Form extends Component {
     constructor(props) {
         super(props)
 
-        this.onChangeSearch = this.onChangeSearch.bind(this)
-        this.onChangeLocationA = this.onChangeLocationA(this)
-        this.onChangeLocationB = this.onChangeLocationB(this)
-        this.onSubmit = this.onSubmit.bind(this)
+        this.onChangeLocationA = this.onChangeLocationA.bind(this)
+        this.onChangeLocationB = this.onChangeLocationB.bind(this)
         this.handleClick = this.handleClick.bind(this)
 
         this.state = {
-            inputText: "",
+            inputTextA: "Houston",
+            inputTextB: "Chicago",
             defaultText: "...",
             defaultText2: "",
             queryString: "",
@@ -28,26 +27,27 @@ export default class Form extends Component {
         }
     }
 
-    onChangeSearch(e) {
+    onChangeLocationA(e) {
         this.setState({
-            queryString: e.target.value,
-            defaultText2: e.target.value
+            inputTextA: e.target.value
         })
-
-        let query = this.state.queryString
-        console.log(query)
     }
-
-    onChangeLocationA(e) {}
-    onChangeLocationB(e) {}
+    onChangeLocationB(e) {
+        this.setState({
+            inputTextB: e.target.value
+        })
+    }
 
     handleClick(){
         console.log("searching...")
 
         // search prep
         let query = {}
-        query["city"] = this.state.queryString;
-        query = JSON.stringify(query);
+        query["city"] = this.state.inputTextA
+        query["city"]+= " " + this.state.inputTextB
+        query = JSON.stringify(query)
+
+        console.log(query)
 
         // api call
         let that = this
@@ -57,12 +57,6 @@ export default class Form extends Component {
                     data: res.data
                 })
             })
-    }
-
-    onSubmit(e) {
-        console.log("click")
-        e.preventDefault()
-        this.handleSearch()
     }
 
     render() {
@@ -75,7 +69,7 @@ export default class Form extends Component {
                             id='search-bar-one'
                             title="Loaction1"
                             defaultText={this.state.defaultText}
-                            change={this.onChangeSearch}
+                            change={this.onChangeLocationA}
                             image={Circle}
                         />
                     </Col>
@@ -83,6 +77,8 @@ export default class Form extends Component {
                         <SearchBar
                             id='search-bar-two'
                             title="Destination"
+                            defaultText={this.state.defaultText}
+                            change={this.onChangeLocationB}
                             image={Pin}
                         />
                     </Col>
@@ -104,8 +100,13 @@ export default class Form extends Component {
                         {(Object.keys(this.state.data).length > 0) ? Object.keys(this.state.data).map(key => (
                             <li key={key}>
                                 <ul>
-                                    <li>airport_name: {this.state.data[key].airport_name}</li>
-                                    <li>city: {this.state.data[key].city}</li>
+                                    <li>start: {this.state.data[key].start}</li>
+                                    <li>end: {this.state.data[key].end}</li>
+                                    <li>airline: {this.state.data[key].airline}</li>
+                                    <li>time: {this.state.data[key].time}</li>
+                                    <li>duration: {this.state.data[key].duration}</li>
+                                    <li>price: {this.state.data[key].price}</li>
+                                    <li>score: {this.state.data[key].score}</li>
                                 </ul>
                             </li>
                         )): <li> results ...</li>}
@@ -114,5 +115,4 @@ export default class Form extends Component {
             </div>
         )
     }
-
 }
