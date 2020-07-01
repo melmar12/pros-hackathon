@@ -2,24 +2,11 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const mongoose = require('mongoose');
-const connectDB = require('./config/db')
-let Airport = require('./airport.model');
-
 let db = require('./data/db.json');
 
 app.use(cors());
 app.use(bodyParser.json());
 
-
-// Connect DB
-connectDB()
-
-const connection = mongoose.connection;
-
-connection.once('open', function() {
-    console.log("MongoDB database connection established successfully");
-})
 
 app.get('/db', function(req, res) {
     res.send(db);
@@ -43,60 +30,6 @@ function getData(city) {
     }
     return result;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// can put this in separate a routes file
-const airportRoutes = express.Router();
-
-
-// GET all airports
-airportRoutes.route('/').get(function(req, res) {
-    Airport.find(function(err, airports) {
-        if (err) {
-            console.log(err);
-        } else {
-            res.json(airports);
-        }
-    });
-});
-
-// GET airport by id
-airportRoutes.route('/:id').get(function(req, res) {
-    let id = req.params.id;
-    Airport.findById(id, function(err, airport) {
-        res.json(airport);
-    });
-});
-
-// POST add airport
-airportRoutes.route('/add').post(function(req, res) {
-    let airport = new Airport(req.body);
-    airport.save()
-        .then(airport => {
-            res.status(200).json({'airport': 'airport added successfully'});
-        })
-        .catch(err => {
-            res.status(400).send('adding new airport failed');
-        });
-});
-
-
-
-// Define Route(s)
-app.use('/airports', airportRoutes);
 
 // serve static assets in production
 if (process.env.NODE_ENV === 'production') {

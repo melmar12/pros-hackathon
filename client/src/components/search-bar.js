@@ -11,7 +11,7 @@ class SearchBar extends React.Component{
         this.defaultText = props.defaultText;
         this.change = props.change;
     }
-    
+
     render(){
         return(
             <div>
