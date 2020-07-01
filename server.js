@@ -17,9 +17,9 @@ connectDB()
 
 const connection = mongoose.connection;
 
-connection.once('open', function() {
-    console.log("MongoDB database connection established successfully");
-})
+//connection.once('open', function() {
+//    console.log("MongoDB database connection established successfully");
+//})
 
 app.get('/db', function(req, res) {
     res.send(db);
