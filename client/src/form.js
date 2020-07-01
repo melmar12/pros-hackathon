@@ -11,6 +11,7 @@ import SearchImg from './img/search.png'
 import FlightContainer from "./components/flight-container";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
+import Results from "./Results";
 
 export default class Form extends Component {
     constructor(props) {
@@ -28,6 +29,7 @@ export default class Form extends Component {
             queryString: "",
             data: {}
         }
+        this.handleClick() // default search Houston -> Chicago
     }
 
     onChangeLocationA(e) {
@@ -100,6 +102,10 @@ export default class Form extends Component {
                         </Col>
                     </form>
                 </Row>
+                {/*<Row className="results justify-content-md-center">*/}
+
+                {/*    <Results data={this.state.data}/>*/}
+                {/*</Row>*/}
                 <Row className="results justify-content-md-center">
                     <div>
                         {(Object.keys(this.state.data).length > 0) ? Object.keys(this.state.data).map(key => (

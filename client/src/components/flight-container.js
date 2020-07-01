@@ -8,7 +8,6 @@ import './search-bar.css';
 class FlightContainer extends React.Component{
     constructor(props){
         super(props);
-        this.keey = props.key;
         this.airline = props.airline;
         this.score = props.score;
         this.type = props.type;
