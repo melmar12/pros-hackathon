@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
-import './small-button.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import optionImg from './../img/more.png';
 
@@ -10,6 +9,7 @@ class SmallButton extends React.Component{
         super(props);
         this.title = props.title;
         this.onClick = props.onClick;
+        this.className = props.className;
     }
 
     render(){

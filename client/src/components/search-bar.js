@@ -15,7 +15,7 @@ class SearchBar extends React.Component{
     render(){
         return(
             <div>
-            <InputGroup className="body">
+            <InputGroup className="">
                     <InputGroup.Prepend >
                         <InputGroup.Text
                             className="img-container"
