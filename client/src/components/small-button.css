@@ -1,8 +1,24 @@
 .circle-btn { 
     width: 30px; 
     height: 30px; 
-    padding: 6px 0px; 
+    padding: 0px 0px; 
     border-radius: 15px; 
     font-size: 8px; 
     text-align: center; 
+    background-color: #eeeeee00;
+    border-color: #eeeeee00;
+}
+
+.circle-btn:hover{
+
+}
+
+.circle-btn:active{
+    
+}
+
+.option-img{
+    background-color: #eeeeee00;
+    width: 28px;
+    height: 28px;
 }
