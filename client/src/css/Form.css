@@ -1,0 +1,22 @@
+.form {
+    padding-top: 30px;
+    display: flex;
+}
+
+.col {
+    padding-right: 0;
+    padding-left: 0;
+    width: auto;
+    min-width: fit-content;
+}
+.form-btn {
+
+}
+
+.arrImg {
+    padding: 5px;
+}
+
+.calImg {
+    padding: 3px;
+}

@@ -12,7 +12,7 @@ class SmallButton extends React.Component{
 
     render(){
         return(
-            <Button variant="outline-primary" onClick={this.onClick}>{this.title}</Button>
+            <Button className="form-btn" variant="outline-primary" onClick={this.onClick}>{this.title}</Button>
             );
     }
 }

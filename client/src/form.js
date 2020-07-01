@@ -4,6 +4,12 @@ import SearchBar from "./components/search-bar";
 import SmallButton from "./components/small-button";
 import SearchImg from "./img/search.png";
 import Pin from "./img/pin.png";
+import Arrow from "./img/arrow.svg"
+import Plane from "./img/plane.svg"
+import Circle from "./img/circle.svg"
+import './css/Form.css'
+import {Col} from "react-bootstrap";
+import DatePicker from "./components/datepicker";
 
 export default class Form extends Component {
     constructor(props) {
@@ -64,24 +70,34 @@ export default class Form extends Component {
     render() {
         return (
             <div>
-                <form>
-                    <SearchBar
-                        id='search-bar-one'
-                        title="Loaction1"
-                        defaultText={this.state.defaultText}
-                        change={this.onChangeSearch}
-                        image={SearchImg}
-                    />
-                    <SearchBar
-                        id='search-bar-two'
-                        title="Destination"
-                        image={Pin}
-                    />
-                    <SmallButton
-                        id='search-button-one'
-                        title='Search Button'
-                        onClick={this.handleClick}
-                    />
+                <form className="form">
+
+                    <Col>
+                        <SearchBar
+                            id='search-bar-one'
+                            title="Loaction1"
+                            defaultText={this.state.defaultText}
+                            change={this.onChangeSearch}
+                            image={Circle}
+                        />
+                    </Col>
+                    <Col>
+                        <SearchBar
+                            id='search-bar-two'
+                            title="Destination"
+                            image={Pin}
+                        />
+                    </Col>
+                    <Col>
+                        <DatePicker/>
+                    </Col>
+                    <Col>
+                        <SmallButton
+                            id='search-button-one'
+                            title='Go'
+                            onClick={this.handleClick}
+                        />
+                    </Col>
                 </form>
                 <div>
                     <ul>
