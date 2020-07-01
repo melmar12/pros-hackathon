@@ -1,6 +1,8 @@
 .FlightContainer{
-    width: 42rem;
+    width: 50rem;
     height: 4rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
     border-top-left-radius: 6px;
     border-bottom-left-radius: 6px;
     border-top-right-radius: 6px;
@@ -25,6 +27,29 @@
     border-bottom-left-radius: 3rem;
     border-color: white;
     background-color: #f7f7f700;
+}
+
+.flight-time{
+    text-align: left;
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+.flight-airline{
+    text-align: left;
+    font-size: 16px;
+    color: gray;
+}
+
+.flight-duration{
+    text-align: left;
+    font-size: 18px;
+}
+
+.flight-route{
+    text-align: left;
+    font-size: 16px;
+    color: gray;
 }
 
 .circle-btn {
