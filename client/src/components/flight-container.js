@@ -5,6 +5,7 @@ import Container from "react-bootstrap/Container";
 import SmallButton from "./small-button";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './flight-container.css';
+import optionImg from './../img/more.png';
 import './search-bar.css';
 
 class FlightContainer extends React.Component{
@@ -28,7 +29,7 @@ class FlightContainer extends React.Component{
                     <div class="col-3">{this.type}</div>
                     <div class="col">{this.score}</div>
                     <div class="col">
-                        <SmallButton className="circle-btn" title='...'/>
+                        <SmallButton className="circle-btn" image={optionImg}/>
                     </div>
 
                 </div>

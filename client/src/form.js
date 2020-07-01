@@ -7,6 +7,7 @@ import Circle from "./img/circle.svg"
 import './css/Form.css'
 import {Col} from "react-bootstrap";
 import DatePicker from "./components/datepicker";
+import SearchImg from './img/search.png';
 
 export default class Form extends Component {
     constructor(props) {
@@ -93,6 +94,7 @@ export default class Form extends Component {
                             id='search-button-one'
                             title='Go'
                             className="form-btn"
+                            image={SearchImg}
                             onClick={this.handleClick}
                         />
                     </Col>

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import optionImg from './../img/more.png';
 
 class SmallButton extends React.Component{
     
@@ -10,6 +9,7 @@ class SmallButton extends React.Component{
         this.title = props.title;
         this.onClick = props.onClick;
         this.className = props.className;
+        this.image = props.image;
     }
 
     render(){
@@ -17,7 +17,7 @@ class SmallButton extends React.Component{
             <Button
                 onClick={this.onClick} 
                 className="circle-btn">
-                    <img className="option-img" src={optionImg}/>
+                    <img className="option-img" src={this.image}/>
             </Button>
             );
     }
