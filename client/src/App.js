@@ -2,7 +2,7 @@ import React from 'react';
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Form from "./Form";
+import Form from "./form";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Results from "./Results";

@@ -1,11 +1,12 @@
 .FlightContainer{
-    width: 45rem;
-    height: 9rem;
-    border-top-left-radius: 3rem;
-    border-bottom-left-radius: 3rem;
-    border-top-right-radius: 3rem;
-    border-bottom-right-radius: 3rem;
-    text-align: left;
+    width: 42rem;
+    height: 4rem;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    text-align: center;
+    justify-content: center;
 }
 .Header{
     width: 9rem;
