@@ -8,6 +8,9 @@ import './css/Form.css'
 import {Col} from "react-bootstrap"
 import DatePicker from "./components/datepicker"
 import SearchImg from './img/search.png'
+import FlightContainer from "./components/flight-container";
+import Row from "react-bootstrap/Row";
+import Container from "react-bootstrap/Container";
 
 export default class Form extends Component {
     constructor(props) {
@@ -61,58 +64,63 @@ export default class Form extends Component {
 
     render() {
         return (
-            <div>
-                <form className="form">
+            <Container>
+                <Row className="justify-content-md-center">
+                    <form className="form">
 
-                    <Col>
-                        <SearchBar
-                            id='search-bar-one'
-                            title="Loaction1"
-                            defaultText={this.state.defaultText}
-                            change={this.onChangeLocationA}
-                            image={Circle}
-                        />
-                    </Col>
-                    <Col>
-                        <SearchBar
-                            id='search-bar-two'
-                            title="Destination"
-                            defaultText={this.state.defaultText}
-                            change={this.onChangeLocationB}
-                            image={Pin}
-                        />
-                    </Col>
-                    <Col>
-                        <DatePicker/>
-                    </Col>
-                    <Col>
-                        <SmallButton
-                            id='search-button-one'
-                            title='Go'
-                            className="form-btn"
-                            image={SearchImg}
-                            onClick={this.handleClick}
-                        />
-                    </Col>
-                </form>
-                <div>
-                    <ul>
+                        <Col>
+                            <SearchBar
+                                id='search-bar-one'
+                                title="Loaction1"
+                                defaultText={this.state.defaultText}
+                                change={this.onChangeLocationA}
+                                image={Circle}
+                            />
+                        </Col>
+                        <Col>
+                            <SearchBar
+                                id='search-bar-two'
+                                title="Destination"
+                                defaultText={this.state.defaultText}
+                                change={this.onChangeLocationB}
+                                image={Pin}
+                            />
+                        </Col>
+                        <Col>
+                            <DatePicker/>
+                        </Col>
+                        <Col>
+                            <SmallButton
+                                id='search-button-one'
+                                title='Go'
+                                className="form-btn"
+                                image={SearchImg}
+                                onClick={this.handleClick}
+                            />
+                        </Col>
+                    </form>
+                </Row>
+                <Row className="results justify-content-md-center">
+                    <div>
                         {(Object.keys(this.state.data).length > 0) ? Object.keys(this.state.data).map(key => (
-                            <li key={key}>
-                                <ul>
-                                    <li>start: {this.state.data[key].start}</li>
-                                    <li>end: {this.state.data[key].end}</li>
-                                    <li>airline: {this.state.data[key].airline}</li>
-                                    <li>time: {this.state.data[key].time}</li>
-                                    <li>duration: {this.state.data[key].duration}</li>
-                                    <li>price: {this.state.data[key].price}</li>
-                                    <li>score: {this.state.data[key].score}</li>
-                                </ul>
-                            </li>
-                        )): <li> results ...</li>}
-                    </ul>
-                </div>
-            </div>
+                                <div>
+                                    <Row>
+                                        <FlightContainer
+                                            key={key}
+                                            airline={this.state.data[key].airline}
+                                            currentLocation={this.state.data[key].start}
+                                            destination={this.state.data[key].end}
+                                            type="One Way"
+                                            time={this.state.data[key].time.replace("?", "-")}
+                                            duration={this.state.data[key].duration}
+                                            price={"$"+this.state.data[key].price}
+                                            score={this.state.data[key].score+"%"}/>
+                                    </Row>
+                                </div>
+                        )): <div>results ...</div>}
+                    </div>
+                </Row>
+            </Container>
         )
     }
 }
