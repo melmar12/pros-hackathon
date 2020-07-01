@@ -9,11 +9,16 @@ class SmallButton extends React.Component{
         this.title = props.title;
         this.onClick = props.onClick;
         this.className = props.className;
+        this.image = props.image;
     }
 
     render(){
         return(
-            <Button variant="outline-primary" className={this.className} onClick={this.onClick}>{this.title}</Button>
+            <Button
+                onClick={this.onClick} 
+                className="circle-btn">
+                    <img className="option-img" src={this.image}/>
+            </Button>
             );
     }
 }

@@ -24,14 +24,33 @@
     border-bottom-right-radius: 3rem;
     border-bottom-left-radius: 3rem;
     border-color: white;
-    background-color: #f7f7f7;
+    background-color: #f7f7f700;
 }
 
 .circle-btn {
     width: 30px;
     height: 30px;
-    padding: 6px 0px;
+    padding: 0px 0px;
     border-radius: 15px;
     font-size: 8px;
     text-align: center;
+    background-color: #00000000;
+    border: none;
+}
+
+.circle-btn:hover{
+    background-color: rgb(179, 177, 177);
+}
+
+.circle-btn:active{
+    background-color: rgb(122, 120, 120);
+}
+.circle-btn:focus{
+    background-color: rgb(122, 120, 120);
+    outline-color: rgb(122, 120, 120);
+}
+
+.option-img{
+    width: 20px;
+    height: 20px;
 }
