@@ -21,7 +21,6 @@ export default class Form extends Component {
                 duration="1hr 8m"
                 price="$97"
                 score="70"/>
-            Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
             </div>
         )
     }
