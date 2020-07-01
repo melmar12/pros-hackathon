@@ -14,6 +14,8 @@ class FlightContainer extends React.Component{
         this.airline = props.airline;
         this.score = props.score;
         this.type = props.type;
+        this.time = props.time;
+        this.duration = props.duration;
         this.price = props.price;
         this.destination = props.destination;
         this.currentLocation = props.currentLocation;
@@ -24,13 +26,21 @@ class FlightContainer extends React.Component{
         <Card className="FlightContainer">
             <Container>
                 <div class="row">
-                    <div class="col">{this.airline}</div>
-                    <div class="col-3">{this.currentLocation} - {this.destination}</div>
-                    <div class="col-3">{this.type}</div>
-                    <div class="col">{this.score}</div>
-                    <div class="col">
-                        <SmallButton className="circle-btn" image={optionImg}/>
+                    <div class="col-4">
+                        <div class="row" className="flight-time">{this.time}</div>
+                        <div class="row" className="flight-airline">{this.airline}</div>
                     </div>
+                    <div class="col-4">
+                        <div class="row" className="flight-duration">{this.duration}</div>
+                        <div class="row" className="flight-route">{this.currentLocation} - {this.destination}</div>
+                    </div>
+                    <div class="col-2">
+                        <div class="row">{this.type}</div>
+                    </div>
+                    <div class="col">{this.score}</div>
+                    { /*<div class="col">
+                        <SmallButton className="circle-btn" image={optionImg}/>
+                    </div>*/}
 
                 </div>
             </Container>
