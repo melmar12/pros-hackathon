@@ -7,11 +7,8 @@ class SearchBar extends React.Component{
     constructor(props){
         super(props);
         this.title = props.title;
-
-        this.state = {
-            inputText: "",
-            defaultText: ""
-        }
+        this.defaultText = props.defaultText;
+        this.change = props.change;
     }
     render(){
         return(
@@ -23,9 +20,8 @@ class SearchBar extends React.Component{
                     <FormControl aria-label="Default"
                                  aria-describedby="inputGroup-sizing-default"
                                  type="text"
-                                 placeholder={this.state.defaultText}
-                                 value={this.state.inputText}
-                        //  onChange={this.onChangeSearch}
+                                 placeholder={this.defaultText}
+                                 onChange={this.change}
                     />
             </InputGroup>
             </div>
