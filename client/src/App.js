@@ -4,6 +4,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Form from "./form.js";
 import PROSLogo from './img/pros-logo.svg';
+import PageTitle from './components/page-title';
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
           <img src={PROSLogo}/>
         </div>
       </div>
-
+      
+      <PageTitle/>
         <Form id='search-form'/>
 
         <div className="footer">
