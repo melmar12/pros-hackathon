@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import Card from 'react-bootstrap/Card';
 import Container from "react-bootstrap/Container";
+import SafetyBadge from './safety-badge'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './flight-container.css';
 import './search-bar.css';
 
-class FlightContainer extends React.Component{
+export default class FlightContainer extends React.Component{
     constructor(props){
         super(props);
         this.airline = props.airline;
@@ -35,7 +36,8 @@ class FlightContainer extends React.Component{
                     <div class="col-2">
                         <div class="row">{this.type}</div>
                     </div>
-                    <div class="col">{this.score}</div>
+                    <SafetyBadge></SafetyBadge>
+                    {/*<div class="col">{this.score}</div>*/}
                     { /*<div class="col">
                         <SmallButton className="circle-btn" image={optionImg}/>
                     </div>*/}
@@ -54,5 +56,3 @@ class FlightContainer extends React.Component{
         );
     }
 }
-
-export default FlightContainer;
