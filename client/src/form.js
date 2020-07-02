@@ -125,7 +125,7 @@ export default class Form extends Component {
                                     time={this.state.data[key].time.replace("?", "-")}
                                     duration={this.state.data[key].duration}
                                     price={"$"+this.state.data[key].price}
-                                    score={this.state.data[key].score+"%"}/>
+                                    score={this.state.data[key].score}/>
                             </Row>
                         )): <Row>no results found</Row>}
                     </div>

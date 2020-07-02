@@ -36,7 +36,9 @@ export default class FlightContainer extends React.Component{
                     <div class="col-2">
                         <div class="row">{this.type}</div>
                     </div>
-                    <SafetyBadge></SafetyBadge>
+                    {this.score > 50 ? <SafetyBadge></SafetyBadge> :
+                        <div className="col"></div> }
+
                     {/*<div class="col">{this.score}</div>*/}
                     { /*<div class="col">
                         <SmallButton className="circle-btn" image={optionImg}/>
