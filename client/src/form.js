@@ -16,6 +16,7 @@ import Circle from "./img/circle.svg"
 
 import './css/Form.css'
 import './css/results.css'
+import { urlencoded } from 'body-parser';
 
 export default class Form extends Component {
     constructor(props) {
@@ -125,7 +126,8 @@ export default class Form extends Component {
                                     time={this.state.data[key].departureTime + " - " + this.state.data[key].arrivalTime}
                                     duration={this.state.data[key].duration}
                                     price={"$"+this.state.data[key].price}
-                                    score={this.state.data[key].score}/>
+                                    score={this.state.data[key].score}
+                                    logo={this.state.data[key].airline}/>
                             </Row>
                         )): <Row>No Results</Row>}
                     </div>

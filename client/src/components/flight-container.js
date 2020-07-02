@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import Card from 'react-bootstrap/Card';
 import Container from "react-bootstrap/Container";
-import SafetyBadge from './safety-badge'
-
+import SafetyBadge from './safety-badge';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './flight-container.css';
 import './search-bar.css';
@@ -19,6 +18,7 @@ export default class FlightContainer extends React.Component{
         this.price = props.price;
         this.destination = props.destination;
         this.currentLocation = props.currentLocation;
+        this.logo = props.logo;
     }
 
     render(){
@@ -26,6 +26,10 @@ export default class FlightContainer extends React.Component{
         <Card className="FlightContainer" key={this.keyId}>
             <Container>
                 <div class="row">
+                    <div className="airline-logo-container">
+                    <img className="airline-logo" 
+                   src={require("./../img/airline-logos/"+ String(this.logo) +".png")} alt="" onError={(e)=>{e.target.onError = null; e.target.src=require("./../img/airplane.png")}}/>
+                    </div>
                     <div class="col-4">
                         <div class="row" className="flight-time">{this.time}</div>
                         <div class="row" className="flight-airline">{this.airline}</div>

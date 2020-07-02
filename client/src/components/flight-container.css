@@ -1,7 +1,7 @@
 .FlightContainer{
     width: 50rem;
     height: 4rem;
-    padding-left: 3rem;
+    padding-left: 1rem;
     padding-right: 3rem;
     border-top-left-radius: 6px;
     border-bottom-left-radius: 6px;
@@ -9,6 +9,17 @@
     border-bottom-right-radius: 6px;
     text-align: center;
     justify-content: center;
+}
+.airline-logo{
+    width: 45px;
+    height: 45px;
+}
+.airline-logo-container{
+    background-color: #00000000;
+    border-top-left-radius: 150%;
+    border-bottom-left-radius: 150%;
+    border-top-right-radius: 150%;
+    border-bottom-right-radius: 150%;
 }
 .Header{
     width: 9rem;
