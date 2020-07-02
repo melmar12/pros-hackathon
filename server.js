@@ -15,21 +15,21 @@ app.get('/db', function(req, res) {
 app.get('/db/:query', function(req, res) {
     let query = JSON.parse(req.params.query)
 
-    res.send(getResults(query.start, query.end))
+    res.send(getResults(query.start.toLowerCase(), query.end.toLowerCase()))
 })
 
 
 // helper functions
-function getData(city) {
-    let data = db.Everything
-    let result = []
-    for(let i in data){
-       if(data[i].userInput === city){
-            result.push(data[i])
-        }
-    }
-    return result
-}
+// function getData(city) {
+//     let data = db.Everything
+//     let result = []
+//     for(let i in data){
+//        if(data[i].userInput === city){
+//             result.push(data[i])
+//         }
+//     }
+//     return result
+// }
 
 getResults("Houston","Chicago")
 function getResults(start, end)
@@ -42,11 +42,11 @@ function getResults(start, end)
 
     for(let i in airports)
     {
-        if(airports[i].city === start)
+        if(airports[i].city.toLowerCase() === start)
         {
             startAirports.push(airports[i].airportCode)
         }
-        if(airports[i].city === end)
+        if(airports[i].city.toLowerCase() === end)
         {
             endAirports.push(airports[i].airportCode)
         }

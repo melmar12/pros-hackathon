@@ -28,8 +28,8 @@ export default class Form extends Component {
         this.state = {
             inputTextA: "",
             inputTextB: "",
-            defaultText: "type departure city here",
-            defaultText2: "type arrival city here",
+            defaultText: "Type departure city here",
+            defaultText2: "Type arrival city here",
             queryString: "",
             data: {}
         }
@@ -127,7 +127,7 @@ export default class Form extends Component {
                                     price={"$"+this.state.data[key].price}
                                     score={this.state.data[key].score}/>
                             </Row>
-                        )): <Row>no results</Row>}
+                        )): <Row>No Results</Row>}
                     </div>
                 </Row>
             </Container>
