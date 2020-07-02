@@ -19,7 +19,7 @@ function App() {
         <Form id='search-form'/>
 
         <div className="footer">
-          Icons made by <a class="a" href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a class="a" href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+          Icons made by <a className="a" href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a className="a" href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
         </div>
     </div>
   );
