@@ -10,6 +10,7 @@ import './search-bar.css';
 export default class FlightContainer extends React.Component{
     constructor(props){
         super(props);
+        this.keyId = props.keyId;
         this.airline = props.airline;
         this.score = props.score;
         this.type = props.type;
@@ -22,7 +23,7 @@ export default class FlightContainer extends React.Component{
 
     render(){
         return(
-        <Card className="FlightContainer" key={this.key}>
+        <Card className="FlightContainer" key={this.keyId}>
             <Container>
                 <div class="row">
                     <div class="col-4">
@@ -36,7 +37,7 @@ export default class FlightContainer extends React.Component{
                     <div class="col-2">
                         <div class="row">{this.type}</div>
                     </div>
-                    {this.score > 50 ? <SafetyBadge></SafetyBadge> :
+                    {this.score > 10 ? <SafetyBadge></SafetyBadge> :
                         <div className="col"></div> }
 
                     {/*<div class="col">{this.score}</div>*/}

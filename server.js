@@ -14,21 +14,56 @@ app.get('/db', function(req, res) {
 
 app.get('/db/:query', function(req, res) {
     let query = JSON.parse(req.params.query)
-    let city = query.city
-    res.send(getData(city));
-});
+
+    res.send(getResults(query.start, query.end))
+})
 
 
 // helper functions
 function getData(city) {
-    let data = db.Everything;
-    let result = [];
+    let data = db.Everything
+    let result = []
     for(let i in data){
        if(data[i].userInput === city){
-            result.push(data[i]);
+            result.push(data[i])
         }
     }
-    return result;
+    return result
+}
+
+getResults("Houston","Chicago")
+function getResults(start, end)
+{
+    let airports = db.Location;
+    let routes = db.Route;
+    let startAirports = []
+    let endAirports = []
+    let results = []
+
+    for(let i in airports)
+    {
+        if(airports[i].city === start)
+        {
+            startAirports.push(airports[i].airportCode)
+        }
+        if(airports[i].city === end)
+        {
+            endAirports.push(airports[i].airportCode)
+        }
+    }
+    console.log(start + ": " + startAirports)
+    console.log(end + ": " + endAirports)
+
+    for(let i in routes)
+    {
+        if(startAirports.includes(routes[i].start)
+            && endAirports.includes(routes[i].end))
+        {
+            results.push(routes[i])
+        }
+    }
+    console.log(results)
+    return results;
 }
 
 // serve static assets in production

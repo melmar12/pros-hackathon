@@ -27,9 +27,9 @@ class DatePicker extends React.Component{
                               Fri, Sep 4
                             <img className="img arrImg" src={ArrowLft}/>
                             <img className="img arrImg" src={ArrowRt}/>
-                            Sun, Sep 6
-                            <img className="img arrImg" src={ArrowLft}/>
-                            <img className="img arrImg" src={ArrowRt}/>
+                            {/*Sun, Sep 6*/}
+                            {/*<img className="img arrImg" src={ArrowLft}/>*/}
+                            {/*<img className="img arrImg" src={ArrowRt}/>*/}
                         </InputGroup.Text>
                     </InputGroup.Prepend>
                 </InputGroup>

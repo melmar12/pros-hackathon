@@ -52,8 +52,8 @@ export default class Form extends Component {
 
         // search prep
         let query = {}
-        query["city"] = this.state.inputTextA
-        query["city"]+= " " + this.state.inputTextB
+        query["start"] = this.state.inputTextA
+        query["end"] = this.state.inputTextB
         query = JSON.stringify(query)
 
         console.log(query)
@@ -116,18 +116,19 @@ export default class Form extends Component {
                     <div>
                         {(Object.keys(this.state.data).length > 0) ? Object.keys(this.state.data).map(key => (
                             <Row className="results">
+                                {console.log(this.state.data[key].score)}
                                 <FlightContainer
-                                    key={key}
+                                    keyId={key}
                                     airline={this.state.data[key].airline}
                                     currentLocation={this.state.data[key].start}
                                     destination={this.state.data[key].end}
                                     type="One Way"
-                                    time={this.state.data[key].time.replace("?", "-")}
+                                    time={this.state.data[key].departureTime + " - " + this.state.data[key].arrivalTime}
                                     duration={this.state.data[key].duration}
                                     price={"$"+this.state.data[key].price}
                                     score={this.state.data[key].score}/>
                             </Row>
-                        )): <Row>no results found</Row>}
+                        )): <Row>no results</Row>}
                     </div>
                 </Row>
             </Container>
