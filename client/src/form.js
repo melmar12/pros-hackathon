@@ -26,14 +26,13 @@ export default class Form extends Component {
         this.handleClick = this.handleClick.bind(this)
 
         this.state = {
-            inputTextA: "Houston",
-            inputTextB: "Chicago",
-            defaultText: "Houston",
-            defaultText2: "destination",
+            inputTextA: "",
+            inputTextB: "",
+            defaultText: "type departure city here",
+            defaultText2: "type arrival city here",
             queryString: "",
             data: {}
         }
-        this.handleClick() // default search Houston -> Chicago
     }
 
     onChangeLocationA(e) {
