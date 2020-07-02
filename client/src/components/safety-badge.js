@@ -17,8 +17,7 @@ const popover = (
             {/*<img id="virus" className="img arrImg" src={Virus}/>*/}
         </Popover.Title>
         <Popover.Content>
-            And here's some <strong>amazing</strong> content. It's very engaging.
-            right?
+            This route has a high FLAP Health Safety Score, a metric based on regional statistics and airport/airline safety procedures. Routes with the FLAP badge are ideal options for health-conscious travelers.
         </Popover.Content>
     </Popover>
 );
