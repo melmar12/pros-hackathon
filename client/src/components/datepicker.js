@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import InputGroup from 'react-bootstrap/InputGroup';
-import FormControl from 'react-bootstrap/FormControl';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './search-bar.css';
-import Arrow from "../img/arrow.svg"
-import Circle from "../img/circle.svg"
 import ArrowRt from "../img/right.svg"
 import ArrowLft from "../img/left.svg"
 import Cal from "../img/cal.svg"

@@ -1,0 +1,20 @@
+.safety-bade {}
+
+#mask {
+    filter: invert(1);
+    width: 45px;
+    height: auto;
+    border-radius: 57%;
+    background-color: #f53800;
+}
+
+#check {
+    background-color: blueviolet;
+    filter: invert(1);
+    border-radius: 50%;
+    width: 23px;
+    height: auto;
+    margin-bottom: -29px;
+    margin-left: -14px;
+    border: 2px solid black;
+}
