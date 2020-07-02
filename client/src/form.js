@@ -80,7 +80,6 @@ export default class Form extends Component {
                                 title="Loaction1"
                                 newClassName="id0"
                                 defaultText={this.state.defaultText}
-                                value={this.state.defaultText}
                                 change={this.onChangeLocationA}
                                 image={Circle}
                             />
@@ -128,7 +127,7 @@ export default class Form extends Component {
                                     price={"$"+this.state.data[key].price}
                                     score={this.state.data[key].score+"%"}/>
                             </Row>
-                        )): <Row>results ...</Row>}
+                        )): <Row>no results found</Row>}
                     </div>
                 </Row>
             </Container>

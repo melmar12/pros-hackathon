@@ -11,7 +11,6 @@ class SearchBar extends React.Component{
         this.defaultText = props.defaultText;
         this.change = props.change;
         this.newClassName = props.newClassName;
-        this.value = props.value;
     }
 
     render(){
@@ -29,7 +28,6 @@ class SearchBar extends React.Component{
                                  aria-describedby="inputGroup-sizing-default"
                                  type="text"
                                  placeholder={this.defaultText}
-                                 value={this.value}
                                  onChange={this.change}/>
             </InputGroup>
             </div>
