@@ -18,20 +18,6 @@ app.get('/db/:query', function(req, res) {
     res.send(getResults(query.start.toLowerCase(), query.end.toLowerCase()))
 })
 
-
-// helper functions
-// function getData(city) {
-//     let data = db.Everything
-//     let result = []
-//     for(let i in data){
-//        if(data[i].userInput === city){
-//             result.push(data[i])
-//         }
-//     }
-//     return result
-// }
-
-getResults("Houston","Chicago")
 function getResults(start, end)
 {
     let airports = db.Location;
