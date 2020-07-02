@@ -1,5 +1,5 @@
 .form {
-    padding-top: 30px;
+    padding: 50px 0;
     display: flex;
 }
 
@@ -20,3 +20,48 @@
 .calImg {
     padding: 3px;
 }
+
+
+.id0 div span img {
+    padding: 5px;
+}
+.id1 div span img {
+    padding: 2px;
+}
+.id0 div span img,.id1 div span img, .id2 div span img {
+    opacity: 0.75;
+}
+.id0 div span {
+    border-bottom-left-radius: 6px;
+    border-top-left-radius: 6px;
+}
+.id0 input, .id1 input {
+    border-radius: 0 0 0 0;
+    border-right-width: 0;
+    border-left-width: 0;
+}
+.id1 div span, .id2 div span {
+    border-radius: 0 0 0 0;
+}
+.submit-btn {
+    border-radius: 0 6px 6px 0;
+    background-color: transparent;
+    opacity: 0.75;
+    border-color: #ced4da;
+}
+.submit-btn:hover {
+    border-color: lightsteelblue;
+    background-color: orangered;
+    border-color: rgb(141, 45, 22);
+    filter: invert(1);
+    opacity: 0.75;
+
+}
+.submit-btn:focus, .submit-btn:active {
+    border-color: lightsteelblue;
+    background-color: white;
+    filter: invert(1);
+    opacity: 0.3;
+}
+
+

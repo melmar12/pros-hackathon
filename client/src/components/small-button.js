@@ -16,7 +16,7 @@ class SmallButton extends React.Component{
         return(
             <Button
                 onClick={this.onClick} 
-                className="circle-btn">
+                className={this.className}>
                     <img className="option-img" src={this.image}/>
             </Button>
             );

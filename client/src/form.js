@@ -28,8 +28,8 @@ export default class Form extends Component {
         this.state = {
             inputTextA: "Houston",
             inputTextB: "Chicago",
-            defaultText: "...",
-            defaultText2: "",
+            defaultText: "Houston",
+            defaultText2: "destination",
             queryString: "",
             data: {}
         }
@@ -78,7 +78,9 @@ export default class Form extends Component {
                             <SearchBar
                                 id='search-bar-one'
                                 title="Loaction1"
+                                newClassName="id0"
                                 defaultText={this.state.defaultText}
+                                value={this.state.defaultText}
                                 change={this.onChangeLocationA}
                                 image={Circle}
                             />
@@ -87,19 +89,20 @@ export default class Form extends Component {
                             <SearchBar
                                 id='search-bar-two'
                                 title="Destination"
-                                defaultText={this.state.defaultText}
+                                newClassName="id1"
+                                defaultText={this.state.defaultText2}
                                 change={this.onChangeLocationB}
                                 image={Pin}
                             />
                         </Col>
                         <Col>
-                            <DatePicker/>
+                            <DatePicker newClassName="id2"/>
                         </Col>
                         <Col>
                             <SmallButton
                                 id='search-button-one'
                                 title='Go'
-                                className="form-btn"
+                                className="form-btn submit-btn"
                                 image={SearchImg}
                                 onClick={this.handleClick}
                             />
