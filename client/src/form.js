@@ -58,7 +58,7 @@ export default class Form extends Component {
         query["end"] = this.state.inputTextB
         query = JSON.stringify(query)
 
-        console.log(query)
+        console.log("parameters: " + query)
 
         // api call
         let that = this
@@ -67,7 +67,10 @@ export default class Form extends Component {
                 that.setState({
                     data: res.data
                 })
+                console.log("data:")
+                console.log(res.data)
             })
+
     }
 
     render() {
@@ -113,7 +116,6 @@ export default class Form extends Component {
                     <div>
                         {(Object.keys(this.state.data).length > 0) ? Object.keys(this.state.data).map(key => (
                             <Row className="results">
-                                {console.log(this.state.data[key].score)}
                                 <FlightContainer
                                     keyId={key}
                                     airline={this.state.data[key].airline}
