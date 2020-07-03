@@ -39,6 +39,7 @@ function getResults(start, end)
     }
     console.log(start + ": " + startAirports)
     console.log(end + ": " + endAirports)
+    console.log("")
 
     for(let i in routes)
     {
@@ -48,7 +49,7 @@ function getResults(start, end)
             results.push(routes[i])
         }
     }
-    console.log(results)
+    //console.log(results)
     return results;
 }
 

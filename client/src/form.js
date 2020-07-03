@@ -1,14 +1,13 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 import {Col} from "react-bootstrap"
-import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row"
+import Container from "react-bootstrap/Container"
 
 import SearchBar from "./components/search-bar"
 import SmallButton from "./components/small-button"
-import FlightContainer from "./components/flight-container";
+import FlightContainer from "./components/flight-container"
 import DatePicker from "./components/datepicker"
-import Results from "./Results";
 
 import SearchImg from './img/search.png'
 import Pin from "./img/pin.png"
@@ -16,7 +15,7 @@ import Circle from "./img/circle.svg"
 
 import './css/Form.css'
 import './css/results.css'
-import { urlencoded } from 'body-parser';
+
 
 export default class Form extends Component {
     constructor(props) {
@@ -48,6 +47,9 @@ export default class Form extends Component {
     }
 
     handleClick(){
+        this.setState({
+            data: {}
+        })
         console.log("searching...")
 
         // search prep
@@ -73,7 +75,6 @@ export default class Form extends Component {
             <Container>
                 <Row className="justify-content-md-center">
                     <form className="form">
-
                         <Col>
                             <SearchBar
                                 id='search-bar-one'
@@ -108,10 +109,6 @@ export default class Form extends Component {
                         </Col>
                     </form>
                 </Row>
-                {/*<Row className="results justify-content-md-center">*/}
-
-                {/*    <Results data={this.state.data}/>*/}
-                {/*</Row>*/}
                 <Row className="justify-content-md-center">
                     <div>
                         {(Object.keys(this.state.data).length > 0) ? Object.keys(this.state.data).map(key => (
