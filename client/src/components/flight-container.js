@@ -6,6 +6,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './flight-container.css';
 import './search-bar.css';
 
+const tryRequire = (path) => {
+    try {
+        return require(`${path}`);
+    } catch (err) {
+        return null;
+    }
+};
+
 export default class FlightContainer extends React.Component{
     constructor(props){
         super(props);
@@ -22,13 +30,15 @@ export default class FlightContainer extends React.Component{
     }
 
     render(){
+        const tryPath = "./../img/airline-logos/"+ String(this.logo)
+        const path = tryRequire(tryPath) ? require(tryPath +".png") : require("./../img/airplane.png")
         return(
         <Card className="FlightContainer" key={this.keyId}>
             <Container>
                 <div class="row">
                     <div className="airline-logo-container">
                         <img className="airline-logo" 
-                            src={require("./../img/airline-logos/"+ String(this.logo) +".png")} alt="" onError={(e)=>{e.target.onError = null; e.target.src=require("./../img/airplane.png")}}/>
+                            src={path}/>
                         </div>
                     <div class="col-4">
                         <div class="row" className="flight-time">{this.time}</div>
