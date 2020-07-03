@@ -27,8 +27,9 @@ export default class FlightContainer extends React.Component{
             <Container>
                 <div class="row">
                     <div className="airline-logo-container">
-                        <img className="airline-logo" 
-                            src={require("./../img/airline-logos/"+ String(this.logo) +".png")} alt="" onError={(e)=>{e.target.onError = null; e.target.src=require("./../img/airplane.png")}}/>
+                        <img className="airline-logo" src={require("./../img/airplane.png")}></img>
+                        {/*<img className="airline-logo" 
+                            src={require("./../img/airline-logos/"+ String(this.logo) +".png")} onError={(e)=>{e.target.onError = null; e.target.src=require("./../img/airplane.png")}}/> */}
                         </div>
                     <div class="col-4">
                         <div class="row" className="flight-time">{this.time}</div>
