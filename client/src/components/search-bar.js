@@ -11,6 +11,7 @@ class SearchBar extends React.Component{
         this.defaultText = props.defaultText;
         this.change = props.change;
         this.newClassName = props.newClassName;
+        this.onKeyDown = props.onKeyDown;
     }
 
     render(){
@@ -27,6 +28,7 @@ class SearchBar extends React.Component{
                     <FormControl aria-label="Default"
                                  aria-describedby="inputGroup-sizing-default"
                                  type="text"
+                                 onKeyDown={this.onKeyDown}
                                  placeholder={this.defaultText}
                                  onChange={this.change}/>
             </InputGroup>

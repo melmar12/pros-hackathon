@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './flight-container.css';
 import './search-bar.css';
 
+
 export default class FlightContainer extends React.Component{
     constructor(props){
         super(props);
@@ -19,20 +20,23 @@ export default class FlightContainer extends React.Component{
         this.destination = props.destination;
         this.currentLocation = props.currentLocation;
         this.logo = props.logo;
+        this.airlineName = props.airlineName;
     }
 
     render(){
+        //const airlineLogoList = ["AA","AS","B6","DL","NK","SW","UA"]
+        const airlineLogoList = []
         return(
         <Card className="FlightContainer" key={this.keyId}>
             <Container>
                 <div class="row">
                     <div className="airline-logo-container">
                     <img className="airline-logo" 
-                   src={require("./../img/airplane.png")}/>
+                   src={airlineLogoList.includes(this.airline) ? require("./../img/airline-logo/" + this.airline + ".png") :require("./../img/airplane.png")}/>
                     </div>
                     <div class="col-4">
                         <div class="row" className="flight-time">{this.time}</div>
-                        <div class="row" className="flight-airline">{this.airline}</div>
+                        <div class="row" className="flight-airline">{this.airlineName}</div>
                     </div>
                     <div class="col-4">
                         <div class="row" className="flight-duration">{this.duration}</div>

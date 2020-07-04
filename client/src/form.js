@@ -6,7 +6,6 @@ import Container from "react-bootstrap/Container"
 
 import SearchBar from "./components/search-bar"
 import SmallButton from "./components/small-button"
-import FlightContainer from "./components/flight-container"
 import DatePicker from "./components/datepicker"
 
 import SearchImg from './img/search.png'
@@ -15,6 +14,7 @@ import Circle from "./img/circle.svg"
 
 import './css/Form.css'
 import './css/results.css'
+import Results from "./Results";
 
 
 export default class Form extends Component {
@@ -24,15 +24,26 @@ export default class Form extends Component {
         this.onChangeLocationA = this.onChangeLocationA.bind(this)
         this.onChangeLocationB = this.onChangeLocationB.bind(this)
         this.handleClick = this.handleClick.bind(this)
+        this.getAirlines = this.getAirlines.bind(this)
 
         this.state = {
             inputTextA: "",
             inputTextB: "",
-            defaultText: "Type departure city here",
-            defaultText2: "Type arrival city here",
             queryString: "",
-            data: {}
+            data: {},
+            airlines: {}
         }
+        this.getAirlines()
+    }
+
+    getAirlines(){
+        let that = this
+        axios.get('/airlines')
+            .then(function(res){
+                that.setState({
+                    airlines: res.data
+                })
+            })
     }
 
     onChangeLocationA(e) {
@@ -50,6 +61,7 @@ export default class Form extends Component {
         this.setState({
             data: {}
         })
+        console.log("")
         console.log("searching...")
 
         // search prep
@@ -58,8 +70,6 @@ export default class Form extends Component {
         query["end"] = this.state.inputTextB
         query = JSON.stringify(query)
 
-        console.log(query)
-
         // api call
         let that = this
         axios.get('/db/' + query)
@@ -67,21 +77,32 @@ export default class Form extends Component {
                 that.setState({
                     data: res.data
                 })
+                console.log("data received: ")
+                console.log(res)
+                console.log(res.data)
             })
+    }
+
+    onEnterPress = (e) => {
+        if(e.keyCode === 13 && e.shiftKey === false) {
+            e.preventDefault();
+            this.handleClick();
+        }
     }
 
     render() {
         return (
             <Container>
                 <Row className="justify-content-md-center">
-                    <form className="form">
+                    <form className="form" onSubmit={this.handleClick}>
                         <Col>
                             <SearchBar
                                 id='search-bar-one'
                                 title="Loaction1"
                                 newClassName="id0"
-                                defaultText={this.state.defaultText}
+                                defaultText="Type departure city here"
                                 change={this.onChangeLocationA}
+                                onKeyDown={this.onEnterPress}
                                 image={Circle}
                             />
                         </Col>
@@ -90,8 +111,9 @@ export default class Form extends Component {
                                 id='search-bar-two'
                                 title="Destination"
                                 newClassName="id1"
-                                defaultText={this.state.defaultText2}
+                                defaultText="Type arrival city here"
                                 change={this.onChangeLocationB}
+                                onKeyDown={this.onEnterPress}
                                 image={Pin}
                             />
                         </Col>
@@ -105,29 +127,15 @@ export default class Form extends Component {
                                 className="form-btn submit-btn"
                                 image={SearchImg}
                                 onClick={this.handleClick}
+                                onKeyDown={this.onEnterPress}
                             />
                         </Col>
                     </form>
                 </Row>
                 <Row className="justify-content-md-center">
-                    <div>
-                        {(Object.keys(this.state.data).length > 0) ? Object.keys(this.state.data).map(key => (
-                            <Row className="results">
-                                {console.log(this.state.data[key].score)}
-                                <FlightContainer
-                                    keyId={key}
-                                    airline={this.state.data[key].airline}
-                                    currentLocation={this.state.data[key].start}
-                                    destination={this.state.data[key].end}
-                                    type="One Way"
-                                    time={this.state.data[key].departureTime + " - " + this.state.data[key].arrivalTime}
-                                    duration={this.state.data[key].duration}
-                                    price={"$"+this.state.data[key].price}
-                                    score={this.state.data[key].score}
-                                    logo={this.state.data[key].airline}/>
-                            </Row>
-                        )): <Row>No Results</Row>}
-                    </div>
+                    {(Object.keys(this.state.data).length > 0)
+                        ? <Results data={this.state.data} airlines={this.state.airlines}/>
+                        : <Row>No Results</Row>}
                 </Row>
             </Container>
         )
