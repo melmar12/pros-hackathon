@@ -18,6 +18,10 @@ app.get('/db/:query', function(req, res) {
     res.send(getResults(query.start.toLowerCase(), query.end.toLowerCase()))
 })
 
+app.get('/airlines', function(req, res) {
+    res.send(db.Airline)
+})
+
 function getResults(start, end)
 {
     let airports = db.Location;
@@ -37,9 +41,6 @@ function getResults(start, end)
             endAirports.push(airports[i].airportCode)
         }
     }
-    console.log(start + ": " + startAirports)
-    console.log(end + ": " + endAirports)
-    console.log("")
 
     for(let i in routes)
     {
@@ -49,7 +50,15 @@ function getResults(start, end)
             results.push(routes[i])
         }
     }
+
+    console.log("--------------------------------------------------------")
+    console.log("input recieved: " + start + " -> " + end)
+    // console.log(start + ": " + startAirports)
+    // console.log(end + ": " + endAirports)
+    console.log("")
+    console.log("sending data...")
     //console.log(results)
+
     return results;
 }
 
