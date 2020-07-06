@@ -45,7 +45,7 @@ export default class FlightContainer extends React.Component{
                     <div class="col-2">
                         <div class="row">{this.type}</div>
                     </div>
-                    {this.score > 51 ? <SafetyBadge></SafetyBadge> :
+                    {this.score > 52 ? <SafetyBadge></SafetyBadge> :
                         <div className="col"></div> }
                 </div>
             </Container>
